@@ -64,7 +64,7 @@ lis.forEach((node) => {
 
         if(resultText == '0' || resultText == 'change' || 
         resultText == 'undefined' || resultText == 'Infinity' || 
-        resultText == 'NaN' || resultText == 'changechange') {
+        resultText == 'NaN' || resultText == "NAN" || resultText == 'changechange') {
             result.innerText = '0';
         }
 
@@ -91,7 +91,7 @@ lis.forEach((node) => {
 
         if(resultText == '0' || resultText == 'change' || 
         resultText == 'undefined' || resultText == 'Infinity' || 
-        resultText == 'NaN' || resultText == 'changechange') {
+        resultText == 'NaN' || resultText == "NAN" || resultText == 'changechange') {
             result.innerText = '0';
         }
 
