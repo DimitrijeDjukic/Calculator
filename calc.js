@@ -2,11 +2,13 @@ const lis = document.querySelectorAll("ul li")
 const body = document.querySelector("body")
 const calc1 = document.querySelector(".normal")
 const calc2 = document.querySelector(".pro")
-const result = document.querySelector(".result")
+const result = document.querySelector(".display")
 
 var change = document.querySelector(".click")
 var change2 = document.querySelector(".click2")
 var counter = 0;
+
+
 
 function addClicks2(event) {
     switch(counter) {
@@ -56,9 +58,9 @@ change2.addEventListener('click', addClicks2);
 
 lis.forEach((node) => {
     node.addEventListener('mousedown', function(event) {
-        const value = node.innerText
-        const result = document.querySelector(".nor")
-        const resultText = result.innerText;
+        var value = node.innerText
+        var result = document.querySelector(".nor")
+        var resultText = result.innerText;
 
         if(resultText == '0' || resultText == 'change' || 
         resultText == 'undefined' || resultText == 'Infinity' || 
@@ -83,9 +85,9 @@ lis.forEach((node) => {
 
 lis.forEach((node) => {
     node.addEventListener('mousedown', function(event) {
-        const value = node.innerText
-        const result = document.querySelector(".programmable")
-        const resultText = result.innerText;
+        var value = node.innerText
+        var result = document.querySelector(".programmable")
+        var resultText = result.innerText;
 
         if(resultText == '0' || resultText == 'change' || resultText == 'undefined' || resultText == 'Infinity' || resultText == 'NaN') {
             result.innerText = '';
@@ -121,7 +123,6 @@ lis.forEach((node) => {
                 result.innerText = parseInt(resultText, 10).toString(16).toUpperCase()
                 return true; 
 
-
             case 'O-Bin':
                 result.innerText = parseInt(resultText,8).toString(2)
                 return true;
@@ -140,13 +141,33 @@ lis.forEach((node) => {
                 return true;
             case 'H-Oct':
                 result.innerText = parseInt(resultText, 16).toString(8)
-                return true;
-                
-                
+                return true;       
         }
-      
- 
+    
         result.append(value);
-
     })
 })
+
+function doFirst() {
+    var button = document.getElementById("save")
+    button.addEventListener("click", saveHistory);
+}
+function saveHistory() {
+    var one = result.innerText;
+    var two = result.innerText;
+  
+    sessionStorage.setItem(one,two);
+
+    display(one);
+}
+
+function display(one) {
+    var downbox = document.getElementById("downbox");
+    var two = sessionStorage.getItem(one);
+    downbox.innerHTML =  two;
+}
+window.addEventListener("load", doFirst)
+
+
+
+
