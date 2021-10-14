@@ -89,8 +89,10 @@ lis.forEach((node) => {
         var result = document.querySelector(".programmable")
         var resultText = result.innerText;
 
-        if(resultText == '0' || resultText == 'change' || resultText == 'undefined' || resultText == 'Infinity' || resultText == 'NaN') {
-            result.innerText = '';
+        if(resultText == '0' || resultText == 'change' || 
+        resultText == 'undefined' || resultText == 'Infinity' || 
+        resultText == 'NaN' || resultText == 'changechange') {
+            result.innerText = '0';
         }
 
         if(value == '=') {
@@ -153,7 +155,7 @@ function doFirst() {
     button.addEventListener("click", saveHistory);
 }
 function saveHistory() {
-    var one = result.innerText;
+    var one = "test"
     var two = result.innerText;
   
     sessionStorage.setItem(one,two);
